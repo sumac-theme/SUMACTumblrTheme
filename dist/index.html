@@ -1,9 +1,953 @@
-<!Doctype HTML>
-<html>
-    <head>
-        <title>Hello world!</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Region - Variables -->
+    <meta name="color:Font Color" content="#fff"/>
+    <meta name="color:Link Color" content="#d9b2d9"/>
+    <meta name="color:Link Hover Color" content="#fff"/>
+    <meta name="color:Nav Link Color" content="d9b2d9"/>
+    <meta name="color:Nav Link Hover Color" content="#fff"/>
+    <meta name="color:Default Nav Link Images Color" content="#d9b2d9"/>
+    <meta name="color:Popover Background Color" content="#fff"/>
+    <meta name="color:Popover Font Color" content="#000"/>
+    <meta name="color:Post Navigation Stroke" content="#714356"/>
+    <meta name="color:Post Navigation Fill" content="#FEE1ED"/>
+    <meta name="color:Post Navigation Arrow Fill" content="#fff"/>
+    
+    <meta name="text:Redirect Home Page" content=""/>
+    
+    <meta name="text:Accent Color Alpha" content="0.2"/>
+    <meta name="text:Spoiler Blur Amount" content="10px"/>
+    <meta name="text:Navigation Blur Amount" content="20px"/>
+    
+    <meta name="text:Author Title" content="Author"/>
+    <meta name="text:Author" content="Suit"/>
+    <meta name="text:Illustrator Title" content="Illustrator"/>
+    <meta name="text:Illustrator" content="Asterite100"/>
+    
+    <meta name="text:Custom Ask Link Title" content="Message the-suit"/>
+    <meta name="text:Custom Submission Link Title" content=""/>
+    
+    <meta name="image:Background" content=""/>
+    
+    <meta name="select:Background Image Fill" content="repeat" title="Repeat horizontal & vertical"/>
+    <meta name="select:Background Image Fill" content="repeat-x" title="Repeat horizontal"/>
+    <meta name="select:Background Image Fill" content="repeat-y" title="Repeat vertical"/>
+    <meta name="select:Background Image Fill" content="no-repeat" title="No repeat"/>
+    
+    <meta name="select:Background Image Size" content="cover" title="Cover Screen"/>
+    <meta name="select:Background Image Size" content="contain" title="Fit Image"/>
+    
+    <meta name="image:Chapter 1" content=""/>
+    <meta name="text:Chapter 1 Tag" content="/tagged/Chapter1/chrono"/>
+    <meta name="image:Chapter 2" content=""/>
+    <meta name="text:Chapter 2 Tag" content="/tagged/Chapter2/chrono"/>
+    <meta name="image:Chapter 3" content=""/>
+    <meta name="text:Chapter 3 Tag" content="/tagged/Chapter3/chrono"/>
+    <meta name="image:Chapter 4" content=""/>
+    <meta name="text:Chapter 4 Tag" content="/tagged/Chapter4/chrono"/>
+    <meta name="image:Chapter 5" content=""/>
+    <meta name="text:Chapter 5 Tag" content="/tagged/Chapter5/chrono"/>
+    <meta name="image:Chapter 6" content=""/>
+    <meta name="text:Chapter 6 Tag" content="/tagged/Chapter6/chrono"/>
+    <meta name="image:Chapter 7" content=""/>
+    <meta name="text:Chapter 7 Tag" content="/tagged/Chapter7/chrono"/>
+    <meta name="image:Chapter 8" content=""/>
+    <meta name="text:Chapter 8 Tag" content="/tagged/Chapter8/chrono"/>
+    
+    <meta name="text:Google Analytics ID" content=""/>
+	<meta name="text:Clicky ID" content=""/>
+	
+	<meta name="if:Chapter Navigation" content="0"/>
+	
+	<meta name="if:Click Photo opens Permalink" content="1"/>
+	
+	<meta name="if:Photo in Post Box" content="0"/>
+    
+    <meta name="if:Show Home" content="1"/>
+    <meta name="if:Show Ask" content="1"/>
+    <meta name="if:Show Submit" content="1"/>
+    <meta name="if:Show Archive" content="1"/>
+    
+    <meta name="if:Show Pinned" content="1"/>
+    <meta name="if:Show Reblog" content="1"/>
+    <meta name="if:Show Like" content="1"/>
+    <meta name="if:Show Share" content="1"/>
+    <meta name="if:Show Tags" content="1"/>
+    
+    <meta name="select:Font" content="Imprima"/>
+    <meta name="select:Font" content="Alegreya"/>
+    <meta name="select:Font" content="Alegreya Sans"/>
+    <meta name="select:Font" content="Merriweather"/>
+    <meta name="select:Font" content="Merriweather Sans"/>
+    <meta name="select:Font" content="Quattrocento"/>
+    <meta name="select:Font" content="Quattrocento Sans"/>
+    <meta name="select:Font" content="PT Serif"/>
+    <meta name="select:Font" content="PT Sans"/>
+    <meta name="select:Font" content="Roboto"/>
+    <meta name="select:Font" content="Droid Serif"/>
+    <meta name="select:Font" content="Droid Sans"/>
+    <meta name="select:Font" content="Open Sans"/>
+    <meta name="select:Font" content="Source Sans Pro"/>
+    <meta name="select:Font" content="Lato"/>
+    <meta name="select:Font" content="Titillium Web"/>
+    <meta name="select:Font" content="Anonymous Pro"/>
+    <meta name="select:Font" content="Libre Baskerville"/>
+    <meta name="select:Font" content="Vollkorn"/>
+    <meta name="select:Font" content="Neuton"/>
+    <meta name="select:Font" content="Lora"/>
+    <meta name="select:Font" content="" title="Default"/>
+    
+    <!-- Region - Standard head fields --->
+    <title>{Title}{block:TagPage} - {Tag}{/block:TagPage}{block:PostSummary} - {PostSummary}{/block:PostSummary}{block:SearchPage} - {lang:Search results for SearchQuery}{/block:SearchPage}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{text:Author}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    
+    <!-- Region - Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <!-- Region - Custom fonts -->
+    <link href="https://fonts.googleapis.com/css2?family={select:Font}" rel="stylesheet">
+
+    <!-- Region - Custom style -->
+    <style type="text/css">
+    
+        body {
+            /* If background image */
+            background-image: url('{image:Background}');
+            background-repeat: {select:Background Image Fill};
+            background-size: {select:Background Image Size};
+            /* If no background image */
+            background-color: {BackgroundColor};
+            
+            color: {color:Font Color};
+            font-family: '{select:Font}', sans-serif';
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, a, li, small {
+            font-family: '{select:Font}', sans-serif;
+        }
+        
+        a {
+            font-family: '{select:Font}', sans-serif;
+            color: {color:Link Color};
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: {color:Link Hover Color};
+            -webkit-transition: all 0.35s ease-in-out; 
+            -moz-transition: all 0.35s ease-in-out; 
+            -ms-transition: all 0.35s ease-in-out; 
+            -o-transition: all 0.35s ease-in-out; 
+            transition: all 0.35s ease-in-out;
+        }
+        
+        .popover-header, .popover-body {
+            background-color:{color:Popover Background Color};
+            color:{color:Popover Font Color};
+        }
+
+        #wrapper {
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+            position:fixed;
+            height: auto;
+            top: 20%;
+            max-height: 70%;
+            overflow-y: auto;
+            padding-bottom: 20px;
+            margin-left: -250px;
+            max-width: 250px;
+            z-index: 1000;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+        
+        #sidebar-wrapper-retract-button {
+            z-index: 10000;
+        }
+
+        #page-content-wrapper {
+            padding: 15px;
+            z-index: 0;
+            
+            min-width: 0px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 48px;
+            
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+        
+        #posts {
+            {block:ifNavigationBlurAmount}
+        	filter: blur(0px);
+        	-webkit-transition: filter .25s ease-out;
+            -moz-transition: filter .25s ease-out;
+            -o-transition: filter .25s ease-out;
+            transition: filter .25s ease-out;
+        	{/block:ifNavigationBlurAmount}
+        }
+        
+        /* For sufficiently small screens, page content should always fit screen */
+        @media (min-width: 800px) {
+            #wrapper.expanded-nav #page-content-wrapper {
+                margin-left: 270px;
+            }   
+        }
+        /* For these small screens, optional blur */
+        @media (max-width: 799px) {
+            #wrapper.expanded-nav #posts {
+                {block:ifNavigationBlurAmount}
+            	filter: blur({text:Navigation Blur Amount});
+            	-webkit-transition: filter .25s ease-out;
+                -moz-transition: filter .25s ease-out;
+                -o-transition: filter .25s ease-out;
+                transition: filter .25s ease-out;
+            	{/block:ifNavigationBlurAmount}
+            }
+        }
+        
+        #wrapper.expanded-nav #sidebar-wrapper {
+            margin-left: 0px;
+        }
+        
+        #sidebar-wrapper-retract-button {
+            z-index: 1000;
+            position: relative;
+            top: 20%;
+            float: right;
+        }
+        
+        #expand-button {
+            position: fixed;
+            top: 43%;
+            margin-left: 0px;
+            z-index: 1000;
+            
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+        
+        #wrapper.expanded-nav #expand-button {
+            margin-left: -500px;
+        }
+        
+        .sumac-box {
+            background: {AccentColor};
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        
+        .sumac-box-nav {
+            border-radius: 0px 15px 15px 0px;
+        }
+        
+        .sumac-box-nav-header-image {
+            max-width: inherit;
+            border-radius: 0px 15px 0px 0px;
+        }
+        
+        .sumac-box-nav a {
+            font-family: '{select:Font}', sans-serif;
+            color: {color:Nav Link Color};
+        }
+        
+        .sumac-box-nav a:hover {
+            color: {color:Nav Link Hover Color};
+        }
+        
+        .sumac-box-nav h4 {
+            text-align: center;
+        }
+        
+        .sumac-box-post {
+            border-radius: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+        
+        /* For sufficiently small screens, min width causes clipping, so don't set it */
+        @media (min-width: 500px) {
+            .sumac-box-post {
+                min-width: 40%;
+            }
+        }
+        
+        .sumac-box-post h3 {
+            padding: 5px 10px 10px 5px;
+        }
+        
+        .sumac-box-post p {
+            padding: 0px 10px 0px 10px;
+        }
+        
+        .sumac_spoiler {
+            {block:ifSpoilerBlurAmount}
+            {block:HomePage}
+        	filter: blur({text:Spoiler Blur Amount});
+        	-webkit-transition: filter .25s ease-out;
+            -moz-transition: filter .25s ease-out;
+            -o-transition: filter .25s ease-out;
+            transition: filter .25s ease-out;
+        	{/block:HomePage}
+        	{/block:ifSpoilerBlurAmoint}
+        }
+        
+        .sumac_spoiler:hover, .sumac_spoiler:focus {
+            {block:ifSpoilerBlurAmount}
+            {block:HomePage}
+        	filter: blur(0px);
+        	-webkit-transition: filter .25s ease-out;
+            -moz-transition: filter .25s ease-out;
+            -o-transition: filter .25s ease-out;
+            transition: filter .25s ease-out;
+        	{/block:HomePage}
+        	{/block:ifSpoilerBlurAmount}
+        }
+        
+        .sumac-post {
+            margin-bottom: 50px;
+            height: auto;
+        }
+        
+        .sumac-post-container {
+            margin-bottom:50px;
+        }
+        
+        .sumac-post-navigation {
+            position: relative;
+            min-width: 66px;
+            min-height: 62px;
+            
+            margin-top: 30%;
+        }
+        
+        /* For sufficiently small screens, there should be smaller margin because there's no room for it */
+        @media (min-width: 801px) {
+            .sumac-post-navigation .left {
+                margin-left: 20px;
+             }
+             .sumac-post-navigation .right {
+                 margin-right: 20px;
+             }
+        }
+        @media (max-width: 800px) {
+            .sumac-post-navigation .left {
+                margin-left: 5px;
+             }
+             .sumac-post-navigation .right {
+                 margin-right: 5px;
+             }
+        }
+        
+        
+        
+        .sumac-post-navigation-button {
+            position: fixed;
+        }
+        
+        .sumac-caption {
+            padding: 15px 10px 0px 10px;
+            max-width: 100%;
+        }
+        
+        /* For sufficiently small screens, min width causes clipping, so don't set it */
+        @media (min-width: 500px) {
+            .sumac-caption {
+                min-width: 30%;
+            }
+        }
+        
+        .sumac-chapter-grid a {
+            max-width: 45%;
+            height: auto;
+        }
+        
+        .sumac-chapter-grid img {
+            max-width: 100%;
+            border-radius: 5px;
+            opacity: 1;
+            display: block;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+        
+        .sumac-chapter-grid a:hover img {
+            opacity: 0.3;
+        }
+        
+        .sumac-content {
+            {block:HomePage}
+            {block:ifChapterNavigation}
+            /* !important because Bootstrap flex is also important */
+            display:none!important;
+            {/block:ifChapterNavigation}
+            {/block:HomePage}
+        }
+        
+        #sumac-credits {
+            position: fixed;
+            margin-left: -250px;
+            bottom:10px;
+            left: 0px;
+            bottom: 0px;
+            
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+        
+        /* For sufficiently small screens, never show credits */
+        @media (min-width: 800px) {
+            #sumac-credits.expanded-nav {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper" class="expanded-nav">
+    
+        <!-- Region - Sidebar Expand -->
+        <!-- Expand button SVG -->
+        <button class="btn" id="expand-button" title="Expand Navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{color:Default Nav Link Images Color}" width="48px" height="48px">
+                <path d="M0 0h24v24H0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </button>
+
+        <!-- Region - Sidebar -->
+        <!-- Sidebar box -->
+        <div class="sumac-box sumac-box-nav" id="sidebar-wrapper">
+            <!-- (Optional) Header Image -->
+            {block:ShowHeaderImage}
+            <img class="sumac-box-nav-header-image" src="{HeaderImage}"/>
+            {/block:ShowHeaderImage}
+            <!-- (Optional) Title -->
+            {block:ifNotShowHeaderImage}
+            <h2 style="padding:10px 10px 0px 10px; text-align:center; color:{TitleColor}">{Title}</h2>
+            {/block:ifNotShowHeaderImage}
+            
+            <!-- (Optional) Description -->
+            {block:ShowDescription}
+            {block:ShowHeaderImage}
+            <h4 style="padding-top:10px;">{Description}</h4>
+            {/block:ShowHeaderImage}
+            {block:ifNotShowHeaderImage}
+            <h4>{Description}</h4>
+            {/block:ifNotShowHeaderImage}
+            {/block:ShowDescription}
+            
+            <!-- Retract button SVG -->
+            <div id="sidebar-wrapper-retract-button">
+                <button class="btn" id="retract-button" title="Retract Navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{color:Default Nav Link Images Color}" width="48px" height="48px">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Column of links -->
+            <div class="d-flex flex-column">
+                <!-- (Optional) Home -->
+                {block:ifShowHome}
+                <!-- Row of Icon + Text -->
+                <div class="d-flex flex-row">
+                    <!-- Home SVG -->
+                    <a class="align-self-center ml-3" href="{BlogURL}">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="{color:Default Nav Link Images Color}" fill-opacity="0.54"/>
+                        </svg>
+                    </a>
+                    <!-- Home Link -->
+                    <a class="ml-2 mt-2" href="{BlogURL}" title="{lang:Home}">{lang:Home}</a>
+                </div>
+                {/block:ifShowHome}
+                
+                <!-- (Optional) Ask -->
+                {block:AskEnabled}
+                {block:ifShowAsk}
+                <!-- Row of Icon + Text -->
+                <div class="d-flex flex-row">
+                    <a class="align-self-center ml-3" href="/ask">
+                        <!-- Ask SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="{color:Default Nav Link Images Color}" fill-opacity="0.54"/>
+                        </svg>
+                    </a>
+                    <!-- Ask Link with optional custom text -->
+                    <a class="ml-2 mt-2" href="/ask" title="{AskLabel}">
+                        {block:ifCustomAskLinkTitle}
+                        {text:Custom Ask Link Title}
+                        {/block:ifCustomAskLinkTitle}
+                        {block:ifNotCustomAskLinkTitle}
+                        {AskLabel}
+                        {/block:ifNotCustomAskLinkTitle}
+                    </a>
+                </div>
+                {/block:ifShowAsk}
+                {/block:AskEnabled}
+                
+                <!-- (Optional) Submit -->
+                {block:SubmissionsEnabled}
+                {block:ifShowSubmit}
+                <!-- Row of Icon + Text -->
+                <div class="d-flex flex-row">
+                    <!-- Submit SVG -->
+                    <a class="align-self-center ml-3" href="/submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M5 4v2h14V4H5zm0 10h4v6h6v-6h4l-7-7-7 7z" fill="{color:Default Nav Link Images Color}" fill-opacity="0.54"/>
+                        </svg>
+                    </a>
+                    <!-- Submit Link with optional custom text -->
+                    <a class="ml-2 mt-2" href="/submit" title="{SubmitLabel}">
+                        {block:ifCustomSubmissionLinkTitle}
+                        {text:Custom Submission Link Title}
+                        {/block:ifCustomSubmissionLinkTitle}
+                        {block:ifNotCustomSubmissionLinkTitle}
+                        {SubmitLabel}
+                        {/block:ifNotCustomSubmissionLinkTitle}
+                    </a>
+                </div>
+                {/block:ifShowSubmit}
+                {/block:SubmissionsEnabled}
+                
+                <!-- (Optional) Archive -->
+                {block:ifShowArchive}
+                <!-- Row of Icon + Text -->
+                <div class="d-flex flex-row">
+                    <!-- Archive SVG -->
+                    <a class="align-self-center ml-3" href="/archive">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0V0z" fill="none"/>
+                            <path d="M4 15h16v-2H4v2zm0 4h16v-2H4v2zm0-8h16V9H4v2zm0-6v2h16V5H4z" fill="{color:Default Nav Link Images Color}" fill-opacity="0.54"/>
+                        </svg>
+                    </a>
+                    <!-- Archive Link -->
+                    <a class="ml-2 mt-2" href="/archive" title="{lang:Browse the archive}">{lang:Archive}</a>
+                </div>
+                {/block:ifShowArchive}
+                
+                {block:HasPages}
+                <hr class="w-100"/>
+                {block:Pages}
+                <div class="d-flex flex-row">
+                    <a class="ml-5 mt-2" href="{URL}" title="{Label}">{Label}</a>
+                </div>
+                {/block:Pages}
+                {/block:HasPages}
+            </div>
+            
+        </div>
+
+        <!-- Region - Page Content -->
+        <div id="page-content-wrapper">
+            <!-- Chapter Navigation, if enabled, only appears on the home page -->
+            {block:HomePage}
+            {block:ifChapterNavigation}
+            <!-- Chapters are in a grid by row. If rows overflow, they move onto the next one -->
+            <div class="d-flex flex-row flex-wrap justify-content-center sumac-chapter-grid">
+                {block:ifChapter1Tag}
+                <a class="p-2" href="{text:Chapter 1 Tag}">
+                    <img src="{image:Chapter 1}"/>
+                </a>
+                {/block:ifChapter1Tag}
+                {block:ifChapter2Tag}
+                <a class="p-2" href="{text:Chapter 2 Tag}">
+                    <img src="{image:Chapter 2}"/>
+                </a>
+                {/block:ifChapter2Tag}
+                {block:ifChapter3Tag}
+                <a class="p-2" href="{text:Chapter 3 Tag}">
+                    <img src="{image:Chapter 3}"/>
+                </a>
+                {/block:ifChapter3Tag}
+                {block:ifChapter4Tag}
+                <a class="p-2" href="{text:Chapter 4 Tag}">
+                    <img src="{image:Chapter 4}"/>
+                </a>
+                {/block:ifChapter4Tag}
+                {block:ifChapter5Tag}
+                <a class="p-2" href="{text:Chapter 5 Tag}">
+                    <img src="{image:Chapter 5}"/>
+                </a>
+                {/block:ifChapter5Tag}
+                {block:ifChapter6Tag}
+                <a class="p-2" href="{text:Chapter 6 Tag}">
+                    <img src="{image:Chapter 6}"/>
+                </a>
+                {/block:ifChapter6Tag}
+                {block:ifChapter7Tag}
+                <a class="p-2" href="{text:Chapter 7 Tag}">
+                    <img src="{image:Chapter 7}"/>
+                </a>
+                {/block:ifChapter7Tag}
+                {block:ifChapter8Tag}
+                <a class="p-2" href="{text:Chapter 8 Tag}">
+                    <img src="{image:Chapter 8}"/>
+                </a>
+                {/block:ifChapter8Tag}
+            </div>
+            {/block:ifChapterNavigation}
+            {/block:HomePage}
+            <!-- Posts Container -->
+            <div class="d-flex flex-row sumac-content justify-content-center">
+                {block:PreviousPage}
+                <!-- Nav Before -->
+                <div class="d-flex flex-column sumac-post-navigation left">
+                    <a class="sumac-post-navigation-button" href="{PreviousPage}" title="{lang:Previous page}">
+                        <svg height="66" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 9.02903L3.85428 11.2317C-0.205142 25.5807 10.62 31.056 16.54 32V28.5386C31.5091 30.5525 31.0228 14.9029 28.9085 6.82634L25.1028 7.77035C14.7006 -5.06822 4.7 3.26007 1 9.02903Z" fill="{color:Post Navigation Fill}" stroke="{color:Post Navigation Stroke}"/>
+                            <path d="M12 16.6182L20 10V24L12 16.6182Z" fill="{color:Post Navigation Arrow Fill}" stroke="{color:Post Navigation Stroke}"/>
+                        </svg>
+                    </a>
+                </div>
+                {/block:PreviousPage}
+                <!-- Posts -->
+                <!-- Posts are organized in a column. Scroll down to view more -->
+                <div id="posts" class="d-flex flex-column w-100">
+                {block:Posts}
+                    <!-- Each post is organized in a column. This only has an effect for photo/video without "Photo in box" since the caption is below -->
+                    <div class="d-flex flex-column sumac-post-container {TagsAsClasses}">
+                    {block:ifNotPhotoInPostBox}
+                    {block:Photo}
+                    <!-- If not photo in box, photo/video is above the caption without a containing box -->
+                    <a class="sumac-post justify-content-center flex-fill ml-auto mr-auto" {block:ifClickPhotoOpensPermalink}href="{Permalink}"{/block:ifClickPhotoOpensPermalink}>
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" style="width:100%; max-width:{PhotoWidth-HighRes}px;" />
+                    </a>
+                    {/block:Photo}
+                    {block:Video}
+                    <div class="sumac-post justify-content-center flex-fill ml-auto mr-auto">
+                        {Video-700}
+                    </div>
+                    {/block:Video}
+                    {/block:ifNotPhotoInPostBox}
+                    
+                    <!-- The post box -->
+                    <div class="sumac-box sumac-box-post p-2 justify-content-center flex-fill">
+                        {block:ifPhotoInPostBox}
+                        {block:Photo}
+                        <!-- If photo in box, place the photo/video inside the box -->
+                        <a class="sumac-post sumac-caption justify-content-center flex-fill ml-auto mr-auto" {block:ifClickPhotoOpensPermalink}href="{Permalink}"{/block:ifClickPhotoOpensPermalink}>
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" style="width:100%; max-width:{PhotoWidth-HighRes}px;" />
+                        </a>
+                        {/block:Photo}
+                        {block:Video}
+                        <div class="sumac-post sumac-caption justify-content-center flex-fill ml-auto mr-auto">
+                            {Video-700}
+                        </div>
+                        {/block:Video}
+                        {/block:ifPhotoInPostBox}
+                        
+                        {block:Answer}
+                        <!-- Answer posts are just q & a in box -->
+                        <div class="sumac-caption">
+                            <h4>{Question}</h4>
+                            <p>{Answer}</p>
+                            <small>{lang:Asked by Asker 2}</small>
+                        </div>
+                        {/block:Answer}
+                        
+                        {block:Text}
+                        <!-- Text posts are just title & body in box -->
+                        <div class="sumac-caption">
+                            <h4>{Title}</h4>
+                            <p>{Body}</p>
+                        </div>
+                        {/block:Text}
+                        
+                        {block:Link}
+                        <!-- Link posts are similar to text posts. Note: tumbnails not supported. -->
+                        <div class="sumac-caption">
+                            <a href="{URL}" target="{Target}">
+                                <h4>{Name}</h4>
+                            </a>
+                        </div>
+                        {block:Description}
+                        <div class="sumac-caption">{Description}</div>
+                        {/block:Description}
+                        {block:Excerpt}
+                        <div class="sumac-caption">{Excerpt}</div>
+                        {/block:Excerpt}
+                        {block:Author}
+                        <small>{Author}</small>
+                        {/block:Author}
+                        {/block:Link}
+                        
+                        {block:Chat}
+                        <!-- Chat posts are similar. -->
+                        <div class="sumac-caption">
+                            {block:Title}
+                            <h4>{Title}</h4>
+                            {/block:Title}
+                            {block:Lines}
+                            <div>
+                                <p>
+                                    {block:Label}
+                                    {Label}
+                                    {/block:Label}
+                                    <em>{Line}</em>
+                                </p>
+                            </div>
+                            {/block:Lines}
+                        </div>
+                        {/block:Chat}
+                        
+                        {block:Audio}
+                        <!-- Audio posts have the audio player then caption. -->
+                        <div class="sumac-caption">
+                            {AudioPlayer}
+                        </div>
+                        {/block:Audio}
+                        
+                        {block:Quote}
+                        <!-- Quotes use bootstrap blockquote feature -->
+                        <div class="sumac-caption">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">
+                                    {Quote}
+                                </p>
+                                {block:Source}
+                                <footer class="blockquote-footer" style="color:{color:Font Color}">
+                                    <cite>{Source}</cite>
+                                </footer>
+                                {/block:Source}
+                            </blockquote>
+                        </div>
+                        {/block:Quote}
+                        
+                        {block:Caption}
+                        <!-- Captions are shared across multiple types. -->
+                        <div class="sumac-caption">{Caption}</div>
+                        {/block:Caption}
+                        
+                        {block:Audio}
+                        <!-- Audio has some more features that should appear below our caption... -->
+                        <small class="sumac-caption">
+                            {PlayCountWithLabel}
+                            {block:TrackName}
+                            / {TrackName}
+                            {/block:TrackName}
+                            {block:Artist}
+                             / {Artist}
+                            {/block:Artist}
+                            {block:Album}
+                             / {Album}
+                            {/block:Album}
+                        </small>
+                        {/block:Audio}
+                        
+                        {block:Date}
+                        <!-- Date means a date exists for this post. We can use this to block share button on custom pages. -->
+                        <!-- Line to divide our date/buttons from the above content -->
+                        <hr>
+                        <!-- Use small text since it's not particularly important -->
+                        <small class="sumac-caption">
+                            {block:NotReblog}
+                            <!-- If not reblog, say when it was posted -->
+                            {lang:Posted TimeAgo with NoteCount notes}
+                            {/block:NotReblog}
+                            {block:RebloggedFrom}
+                            <!-- If reblogged, say who reblogged it -->
+                            {lang:PostTypeNoun reblogged from ReblogParentName with NoteCount notes 2}
+                            {/block:RebloggedFrom}
+                        </small>
+                        {block:ifShowTags}
+                        {block:HasTags}
+                        <!-- If allowed, show the CHRONO tag link so that posts are viewed in chronological order (like we want for a comic) -->
+                        <br/>
+                        <small class="sumac-caption">
+                            {block:Tags}
+                            <a href="{TagURLChrono}" class="sumac-tag-link">#{Tag}</a>&nbsp;
+                            {/block:Tags}
+                        </small>
+                        {/block:HasTags}
+                        {/block:ifShowTags}
+                        <!-- Divide buttons from date content -->
+                        <hr>
+                        <!-- Post buttons appear in a row -->
+                        <div class="d-flex flex-row justify-content-end mr-auto">
+                            {block:ifShowPinned}
+                            {block:PinnedPostLabel}
+                            <!-- Use Tumblr's default pin label -->
+                            <div class="ml-2 mr-auto">{PinnedPostLabel}</div>
+                            {/block:PinnedPostLabel}
+                            {/block:ifShowPinned}
+                            
+                            {block:ifShowReblog}
+                            <!-- Use Tumblr's default reblog button -->
+                            <div class="pr-2">{ReblogButton color="white"}</div>
+                            {/block:ifShowReblog}
+                            
+                            {block:ifShowLike}
+                            <!-- Use Tumblr's default like button -->
+                            <div class="pr-2" style="padding-top:2px;">{LikeButton color="white"}</div>
+                            {/block:ifShowLike}
+                            
+                            {block:ifShowShare}
+                            <!-- Share button is a popover -->
+                            <!-- Popover content is a column of links -->
+                            <a tabindex="0"
+                                class="pr-2"
+                                id="sumac-share-popover"
+                                role="button" 
+                                data-toggle="popover"
+                                data-placement="top"
+                                title="{lang:Share this}"
+                                data-content="
+                                    <div class='d-flex flex-column'>
+                                        <a target='_new' onclick='hidePopover()' href='https://twitter.com/intent/tweet?url={ShortURL}' title='{lang:Share this} - Twitter'>Twitter</a>
+                                        <a target='_new' onclick='hidePopover()' href='https://www.facebook.com/sharer.php?u={Permalink}{block:Title}&t={Title}{/block:Title}' title='{lang:Share this} - {lang:Facebook}'>{lang:Facebook}</a>
+                                        <a target='_new' onclick='hidePopover()' href='https://pinterest.com/pin/create/button/?url={Permalink}&media={PhotoURL-500}' title='{lang:Share this} - {lang:Pinterest}'>{lang:Pinterest}</a>
+                                        <p>{ShortURL}</p>
+                                    </div>
+                                ">
+                                    <!-- Share SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" fill="white"/>
+                                    </svg>
+                            </a>
+                            {/block:ifShowShare}
+                        </div>
+                        {/block:Date}
+                    </div>
+                </div>
+            {/block:Posts}
+            </div>
+            {block:NextPage}
+            <!-- Nav After -->
+            <div class="d-flex flex-column sumac-post-navigation right">
+                <a class="sumac-post-navigation-button" href="{NextPage}" title="{lang:Next page}">
+                    <svg height="66" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9.02903L3.85428 11.2317C-0.205142 25.5807 10.62 31.056 16.54 32V28.5386C31.5091 30.5525 31.0228 14.9029 28.9085 6.82634L25.1028 7.77035C14.7006 -5.06822 4.7 3.26007 1 9.02903Z" fill="{color:Post Navigation Fill}" stroke="{color:Post Navigation Stroke}"/>
+                        <path d="M22 17.3818L14 24L14 10L22 17.3818Z" fill="{color:Post Navigation Arrow Fill}" stroke="{color:Post Navigation Stroke}"/>
+                    </svg>
+                </a>
+            </div>
+            {/block:NextPage}
+        </div>
+        
+        <!--  Region - Credits -->
+        <p id="sumac-credits" class="expanded-nav">{text:Author Title}: {text:Author}<br/>{text:Illustrator Title}: {text:Illustrator}</p>
+    </div>
+
+    <!-- Region - Bootstrap (and Dependencies) JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <!-- Region - Custom Scripts -->
+    <script>
+        {block:ifAccentColorAlpha}
+        // Fix accent color & opacity 
+        $('.sumac-box').css('background-color', $('.sumac-box').css('background-color').replace(')', ',{text:Accent Color Alpha})'));
+        {/block:ifAccentColorAlpha}
+        
+        function toggleMenuExpanded(e) {
+            e.preventDefault();
+            $('#wrapper').toggleClass('expanded-nav');
+            $('#sumac-credits').toggleClass('expanded-nav');
+        }
+        
+        // Menu toggle (inside nav box)
+        $('#retract-button').click(toggleMenuExpanded);
+        
+        // Menu toggle (outside nav box)
+        $('#expand-button').click(toggleMenuExpanded);
+        
+        // Auto-set to not expanded-nav on small devices
+        function retractMenuOnSmallScreen(mediaQuery) {
+            if (mediaQuery.matches) { // If media query matches
+                $.each( ['#wrapper', '#sumac-credits'], function(index, item){
+                      if ($(item).hasClass('expanded-nav')) {
+                          $(item).toggleClass('expanded-nav');
+                      }
+                }); 
+            }
+        }
+        
+        const smallScreen = window.matchMedia("(max-width: 700px)");
+        retractMenuOnSmallScreen(smallScreen);
+        smallScreen.addListener(retractMenuOnSmallScreen);
+        
+        // Enable popovers
+        $('#sumac-share-popover').popover({ html : true });
+        
+        // Hide popovers when share link is clicked
+        function hidePopover() {
+            $('#sumac-share-popover').popover('hide');
+        }
+    </script>
+    
+    {block:IfGoogleAnalyticsID}
+    <!-- Region - Google Analytics -->
+	<script>
+		var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+	{/block:IfGoogleAnalyticsID}
+	
+	{block:ifClickyID}
+	<!-- Region - Clicky -->
+	<script type="text/javascript">
+		var clicky = { log: function(){ return; }, goal: function(){ return; }};
+		var clicky_site_id = {text:Clicky ID};
+		(function() {
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = ( document.location.protocol == 'https:' ? 'https://static.getclicky.com/js' : 'http://static.getclicky.com/js' );
+		( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+		})();
+	</script>
+		<a title="Google Analytics Alternative" href="https://getclicky.com/{text:Clicky ID}"></a>
+		<noscript><p><img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/{text:Clicky ID}ns.gif"></p></noscript>
+	{/block:ifClickyID}
+	
+	{block:ifRedirectHomePage}
+	{block:HomePage}
+	<!-- Region - Redirect Script -->
+    <script>
+        window.onload = function() {
+            window.location.replace('{text:Redirect Home Page}');
+        };
+    </script>
+    {/block:HomePage}
+    {/block:ifRedirectHomePage}
+</body>
+
 </html>
