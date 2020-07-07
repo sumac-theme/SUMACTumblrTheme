@@ -1,0 +1,303 @@
+body {
+    /* If background image */
+    background-image: url('{image:Background}');
+    background-repeat: {select:Background Image Fill};
+    background-size: {select:Background Image Size};
+    /* If no background image */
+    background-color: {BackgroundColor};
+    
+    color: {color:Font Color};
+    font-family: '{select:Font}', sans-serif';
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li, small {
+    font-family: '{select:Font}', sans-serif;
+}
+
+a {
+    font-family: '{select:Font}', sans-serif;
+    color: {color:Link Color};
+}
+
+a:hover {
+    text-decoration: none;
+    color: {color:Link Hover Color};
+    -webkit-transition: all 0.35s ease-in-out; 
+    -moz-transition: all 0.35s ease-in-out; 
+    -ms-transition: all 0.35s ease-in-out; 
+    -o-transition: all 0.35s ease-in-out; 
+    transition: all 0.35s ease-in-out;
+}
+
+.popover-header, .popover-body {
+    background-color:{color:Popover Background Color};
+    color:{color:Popover Font Color};
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    position:fixed;
+    height: auto;
+    top: 20%;
+    max-height: 70%;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    margin-left: -250px;
+    max-width: 250px;
+    z-index: 1000;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper-retract-button {
+    z-index: 10000;
+}
+
+#page-content-wrapper {
+    padding: 15px;
+    z-index: 0;
+    
+    min-width: 0px;
+    max-width: 100%;
+    height: auto;
+    margin-left: 48px;
+    
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#posts {
+    {block:ifNavigationBlurAmount}
+    filter: blur(0px);
+    -webkit-transition: filter .25s ease-out;
+    -moz-transition: filter .25s ease-out;
+    -o-transition: filter .25s ease-out;
+    transition: filter .25s ease-out;
+    {/block:ifNavigationBlurAmount}
+}
+
+/* For sufficiently small screens, page content should always fit screen */
+@media (min-width: 800px) {
+    #wrapper.expanded-nav #page-content-wrapper {
+        margin-left: 270px;
+    }   
+}
+/* For these small screens, optional blur */
+@media (max-width: 799px) {
+    #wrapper.expanded-nav #posts {
+        {block:ifNavigationBlurAmount}
+        filter: blur({text:Navigation Blur Amount});
+        -webkit-transition: filter .25s ease-out;
+        -moz-transition: filter .25s ease-out;
+        -o-transition: filter .25s ease-out;
+        transition: filter .25s ease-out;
+        {/block:ifNavigationBlurAmount}
+    }
+}
+
+#wrapper.expanded-nav #sidebar-wrapper {
+    margin-left: 0px;
+}
+
+#sidebar-wrapper-retract-button {
+    z-index: 1000;
+    position: relative;
+    top: 20%;
+    float: right;
+}
+
+#expand-button {
+    position: fixed;
+    top: 43%;
+    margin-left: 0px;
+    z-index: 1000;
+    
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#wrapper.expanded-nav #expand-button {
+    margin-left: -500px;
+}
+
+.sumac-box {
+    background: {AccentColor};
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sumac-box-nav {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.sumac-box-nav-header-image {
+    max-width: inherit;
+    border-radius: 0px 15px 0px 0px;
+}
+
+.sumac-box-nav a {
+    font-family: '{select:Font}', sans-serif;
+    color: {color:Nav Link Color};
+}
+
+.sumac-box-nav a:hover {
+    color: {color:Nav Link Hover Color};
+}
+
+.sumac-box-nav h4 {
+    text-align: center;
+}
+
+.sumac-box-post {
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+/* For sufficiently small screens, min width causes clipping, so don't set it */
+@media (min-width: 500px) {
+    .sumac-box-post {
+        min-width: 40%;
+    }
+}
+
+.sumac-box-post h3 {
+    padding: 5px 10px 10px 5px;
+}
+
+.sumac-box-post p {
+    padding: 0px 10px 0px 10px;
+}
+
+.sumac_spoiler {
+    {block:ifSpoilerBlurAmount}
+    {block:HomePage}
+    filter: blur({text:Spoiler Blur Amount});
+    -webkit-transition: filter .25s ease-out;
+    -moz-transition: filter .25s ease-out;
+    -o-transition: filter .25s ease-out;
+    transition: filter .25s ease-out;
+    {/block:HomePage}
+    {/block:ifSpoilerBlurAmoint}
+}
+
+.sumac_spoiler:hover, .sumac_spoiler:focus {
+    {block:ifSpoilerBlurAmount}
+    {block:HomePage}
+    filter: blur(0px);
+    -webkit-transition: filter .25s ease-out;
+    -moz-transition: filter .25s ease-out;
+    -o-transition: filter .25s ease-out;
+    transition: filter .25s ease-out;
+    {/block:HomePage}
+    {/block:ifSpoilerBlurAmount}
+}
+
+.sumac-post {
+    margin-bottom: 50px;
+    height: auto;
+}
+
+.sumac-post-container {
+    margin-bottom:50px;
+}
+
+.sumac-post-navigation {
+    position: relative;
+    min-width: 66px;
+    min-height: 62px;
+    
+    margin-top: 30%;
+}
+
+/* For sufficiently small screens, there should be smaller margin because there's no room for it */
+@media (min-width: 801px) {
+    .sumac-post-navigation .left {
+        margin-left: 20px;
+        }
+        .sumac-post-navigation .right {
+            margin-right: 20px;
+        }
+}
+@media (max-width: 800px) {
+    .sumac-post-navigation .left {
+        margin-left: 5px;
+        }
+        .sumac-post-navigation .right {
+            margin-right: 5px;
+        }
+}
+
+
+
+.sumac-post-navigation-button {
+    position: fixed;
+}
+
+.sumac-caption {
+    padding: 15px 10px 0px 10px;
+    max-width: 100%;
+}
+
+/* For sufficiently small screens, min width causes clipping, so don't set it */
+@media (min-width: 500px) {
+    .sumac-caption {
+        min-width: 30%;
+    }
+}
+
+.sumac-chapter-grid a {
+    max-width: 45%;
+    height: auto;
+}
+
+.sumac-chapter-grid img {
+    max-width: 100%;
+    border-radius: 5px;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.sumac-chapter-grid a:hover img {
+    opacity: 0.3;
+}
+
+.sumac-content {
+    {block:HomePage}
+    {block:ifChapterNavigation}
+    /* !important because Bootstrap flex is also important */
+    display:none!important;
+    {/block:ifChapterNavigation}
+    {/block:HomePage}
+}
+
+#sumac-credits {
+    position: fixed;
+    margin-left: -250px;
+    bottom:10px;
+    left: 0px;
+    bottom: 0px;
+    
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+/* For sufficiently small screens, never show credits */
+@media (min-width: 800px) {
+    #sumac-credits.expanded-nav {
+        margin-left: 10px;
+    }
+}
