@@ -41,11 +41,6 @@ There are two options for installing this theme.
 1. Share Popover - Individual posts may optionally include a share button and popover for quick access to share to Facebook, Pinterest, and Twitter.
 1. Custom Fonts - View the theme in non-standard fonts thanks to Google font support.
 
-## Known Issues
-
-1. The expand/retract navigation bar buttons do not necessarily align depending on navigation bar size and screen size.
-1. To dismiss a share popover, the share button must be tapped again. Ideally, the popover would dismiss whenever you click outside of the bounds of the popover. Note: This should not cause the popover to dismiss when you click *inside* of the bounds of the popover, and it's better to keep this known issue behavior than to introduce dismissal when clicking inside of the popover.
-
 ## Preview
 
 There is a preview of this theme available at [https://testing-theme-for-sumac.tumblr.com/](https://testing-theme-for-sumac.tumblr.com/).
