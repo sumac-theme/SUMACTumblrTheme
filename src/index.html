@@ -60,6 +60,7 @@
 	<meta name="text:Clicky ID" content=""/>
 	
 	<meta name="if:Chapter Navigation" content="0"/>
+	<meta name="if:Comic Style Navigation" content="1"/>
 	
 	<meta name="if:Click Photo opens Permalink" content="1"/>
 	
@@ -312,6 +313,20 @@
             {/block:HomePage}
             <!-- Posts Container -->
             <div class="d-flex flex-row sumac-content justify-content-center">
+                {block:ifComicStyleNavigation}
+                {block:NextPage}
+                <!-- Nav Before -->
+                <div class="d-flex flex-column sumac-post-navigation left">
+                    <a class="sumac-post-navigation-button" href="{NextPage}" title="{lang:Next page}">
+                        <svg height="66" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 9.02903L3.85428 11.2317C-0.205142 25.5807 10.62 31.056 16.54 32V28.5386C31.5091 30.5525 31.0228 14.9029 28.9085 6.82634L25.1028 7.77035C14.7006 -5.06822 4.7 3.26007 1 9.02903Z" fill="{color:Post Navigation Fill}" stroke="{color:Post Navigation Stroke}"/>
+                            <path d="M12 16.6182L20 10V24L12 16.6182Z" fill="{color:Post Navigation Arrow Fill}" stroke="{color:Post Navigation Stroke}"/>
+                        </svg>
+                    </a>
+                </div>
+                {/block:NextPage}
+                {/block:ifComicStyleNavigation}
+                {block:ifNotComicStyleNavigation}
                 {block:PreviousPage}
                 <!-- Nav Before -->
                 <div class="d-flex flex-column sumac-post-navigation left">
@@ -323,6 +338,7 @@
                     </a>
                 </div>
                 {/block:PreviousPage}
+                {/block:ifNotComicStyleNavigation}
                 <!-- Posts -->
                 <!-- Posts are organized in a column. Scroll down to view more -->
                 <div id="posts" class="d-flex flex-column w-100">
@@ -535,6 +551,20 @@
                 </div>
             {/block:Posts}
             </div>
+            {block:ifComicStyleNavigation}
+            {block:PreviousPage}
+            <!-- Nav After -->
+            <div class="d-flex flex-column sumac-post-navigation right">
+                <a class="sumac-post-navigation-button" href="{PreviousPage}" title="{lang:Previous page}">
+                    <svg height="66" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9.02903L3.85428 11.2317C-0.205142 25.5807 10.62 31.056 16.54 32V28.5386C31.5091 30.5525 31.0228 14.9029 28.9085 6.82634L25.1028 7.77035C14.7006 -5.06822 4.7 3.26007 1 9.02903Z" fill="{color:Post Navigation Fill}" stroke="{color:Post Navigation Stroke}"/>
+                        <path d="M22 17.3818L14 24L14 10L22 17.3818Z" fill="{color:Post Navigation Arrow Fill}" stroke="{color:Post Navigation Stroke}"/>
+                    </svg>
+                </a>
+            </div>
+            {/block:PreviousPage}
+            {/block:ifComicStyleNavigation}
+            {block:ifNotComicStyleNavigation}
             {block:NextPage}
             <!-- Nav After -->
             <div class="d-flex flex-column sumac-post-navigation right">
@@ -546,6 +576,7 @@
                 </a>
             </div>
             {/block:NextPage}
+            {/block:ifNotComicStyleNavigation}
         </div>
         
         <!--  Region - Credits -->
