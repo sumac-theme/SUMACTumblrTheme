@@ -64,6 +64,8 @@
 	<meta name="if:Click Photo opens Permalink" content="1"/>
 	
 	<meta name="if:Photo in Post Box" content="0"/>
+	
+	<meta name="if:Spoiler Blur on All Pages" content="0"/>
     
     <meta name="if:Show Home" content="1"/>
     <meta name="if:Show Ask" content="1"/>
@@ -571,7 +573,11 @@
     <script src="js/redirect.min.js"></script>
     {/block:HomePage}
     {/block:ifRedirectHomePage}
-    
+
+    {block:ifNotSpoilerBlurOnAllPages}
+    <script src="js/spoiler.min.js"></script>
+    {/block:ifNotSpoilerBlurOnAllPages}
+
     {block:IfGoogleAnalyticsID}
     <!-- Region - Google Analytics -->
 	<script>

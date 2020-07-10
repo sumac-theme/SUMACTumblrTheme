@@ -64,6 +64,8 @@
 	<meta name="if:Click Photo opens Permalink" content="1"/>
 	
 	<meta name="if:Photo in Post Box" content="0"/>
+	
+	<meta name="if:Spoiler Blur on All Pages" content="0"/>
     
     <meta name="if:Show Home" content="1"/>
     <meta name="if:Show Ask" content="1"/>
@@ -301,25 +303,21 @@
         
         .sumac_spoiler {
             {block:ifSpoilerBlurAmount}
-            {block:HomePage}
         	filter: blur({text:Spoiler Blur Amount});
         	-webkit-transition: filter .25s ease-out;
             -moz-transition: filter .25s ease-out;
             -o-transition: filter .25s ease-out;
             transition: filter .25s ease-out;
-        	{/block:HomePage}
         	{/block:ifSpoilerBlurAmoint}
         }
         
         .sumac_spoiler:hover, .sumac_spoiler:focus {
             {block:ifSpoilerBlurAmount}
-            {block:HomePage}
         	filter: blur(0px);
         	-webkit-transition: filter .25s ease-out;
             -moz-transition: filter .25s ease-out;
             -o-transition: filter .25s ease-out;
             transition: filter .25s ease-out;
-        	{/block:HomePage}
         	{/block:ifSpoilerBlurAmount}
         }
         
@@ -357,8 +355,6 @@
                  margin-right: 5px;
              }
         }
-        
-        
         
         .sumac-post-navigation-button {
             position: fixed;
@@ -909,6 +905,22 @@
         function hidePopover() {
             $('#sumac-share-popover').popover('hide');
         }
+        
+        {block:ifRedirectHomePage}
+        {block:HomePage}
+        // Redirect on window load
+        window.onload = function() {
+            window.location.replace('{text:Redirect Home Page}');
+        };
+        {/block:HomePage}
+        {/block:ifRedirectHomePage}
+
+        {block:ifNotSpoilerBlurOnAllPages}
+        // If not page 1, don't blur spoiler content
+        if ({CurrentPage} != 1) {
+            $('.sumac-post-container').removeClass('sumac_spoiler');
+        }
+        {/block:ifNotSpoilerBlurOnAllPages}
     </script>
     
     {block:IfGoogleAnalyticsID}
@@ -937,17 +949,6 @@
 		<a title="Google Analytics Alternative" href="https://getclicky.com/{text:Clicky ID}"></a>
 		<noscript><p><img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/{text:Clicky ID}ns.gif"></p></noscript>
 	{/block:ifClickyID}
-	
-	{block:ifRedirectHomePage}
-	{block:HomePage}
-	<!-- Region - Redirect Script -->
-    <script>
-        window.onload = function() {
-            window.location.replace('{text:Redirect Home Page}');
-        };
-    </script>
-    {/block:HomePage}
-    {/block:ifRedirectHomePage}
 </body>
 
 </html>
